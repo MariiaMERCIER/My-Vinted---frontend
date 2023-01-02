@@ -5,20 +5,20 @@ import { Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const stripPromise = loadStripe(
   "pk_test_51M4Oa5LO2uKvmdcRPDIQ5SE5q7mHqe33Ybdj8e2URuY3rKgJIpYSWp448q88CmizVPBvB8YcvW50jHRyzVKnOMDB00EfapnyV9"
 );
 
-// console.log(stripPromise);
-
-const Paiement = ({ token, id }) => {
+const Paiement = ({ token, id, handleToken }) => {
   const location = useLocation();
   const { price } = location.state;
   const { title } = location.state;
 
   return token ? (
     <>
+      <Header token={token} handleToken={handleToken} />
       <Elements stripe={stripPromise}>
         <CheckoutForm title={title} price={price} id={id} />
       </Elements>

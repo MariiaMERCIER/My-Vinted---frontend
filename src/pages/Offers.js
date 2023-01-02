@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import HeaderOffer from "../components/HeaderOffer";
 
 import OfferInfo from "../components/OfferInfo";
+import SelectPage from "../components/SelectPage";
 
 const Offers = ({
   search,
-  // validate,
+
   limit,
   setLimit,
   priceSort,
@@ -46,16 +48,6 @@ const Offers = ({
     fetchData();
   }, [priceMin, priceMax, limit, page, priceSort, search]);
 
-  // let articlePresent = null;
-
-  // if (validate === true) {
-  //   //  console.log(data.offers[i].product_name);
-  //   articlePresent = data.offers.filter((elem) =>
-  //     elem.product_name.includes(search)
-  //   );
-  //   //   console.log(articlePresent);
-  // }
-
   const handlePriceChangeMax = (event) => {
     setPriceMax(event.target.value);
   };
@@ -64,19 +56,17 @@ const Offers = ({
     setPriceMin(event.target.value);
   };
 
-  const handlePageChange = (event) => {
-    setLimit(event.target.value);
-  };
-
   return isLoading ? (
     <>
+      <HeaderOffer />
       <div className="loading">
         <p>En cours de chargement...</p>
-      </div>{" "}
+      </div>
       <Footer />
     </>
   ) : (
     <>
+      <HeaderOffer />
       <div className="container">
         <div className="filters">
           <h2 className="title">Toutes les articles</h2>
@@ -125,36 +115,14 @@ const Offers = ({
               </div>
             </div>
             <div>
-              <select className="articles-page" onChange={handlePageChange}>
-                <option>Nombre d'article par page</option>
-                <option>5</option>
-                <option>15</option>
-                <option>20</option>
-                <option>25</option>
-                <option>30</option>
-              </select>
+              <SelectPage setLimit={setLimit} />
             </div>
           </div>
           <div className="content actu">
-            {/* {validate
-            ? articlePresent.map((element) => {
-                return (
-                  <OfferInfo
-                    data={data}
-                    search={search}
-                    validate={validate}
-                    display={true}
-                    elem={element}
-                    key={element._id}
-                  />
-                );
-              })
-            : */}
             {data.offers.map((element) => {
               return (
                 <OfferInfo
                   search={search}
-                  // validate={validate}
                   display={true}
                   elem={element}
                   key={element._id}

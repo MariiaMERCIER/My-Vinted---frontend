@@ -22,6 +22,10 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: rgb(32, 146, 157);
+}
+
 input {
   border: none;
 }
@@ -54,6 +58,9 @@ header button {
   margin-left: 5px;
 }
 
+header button:hover {
+  background-color: rgb(235, 245, 246);
+}
 .sell {
   width: 110px;
   background-color: rgb(2, 117, 128);
@@ -61,6 +68,10 @@ header button {
   border: none;
   margin-left: 10px;
   margin-right: 5px;
+}
+
+.sell:hover {
+  background-color: rgb(32, 146, 157);
 }
 
 .buttons-enTête {
@@ -166,8 +177,13 @@ header button {
   margin-bottom: 20px;
 }
 .banner form p {
+  cursor: pointer;
   font-size: 14px;
   color: rgb(2, 117, 128);
+}
+
+.banner form p:hover {
+  color: rgb(32, 146, 157);
 }
 
 .banner {
@@ -203,6 +219,10 @@ header button {
   background-color: #ebe9e9;
   color: grey;
   height: 392px;
+}
+
+.seeMoreArticle:hover {
+  text-decoration: underline;
 }
 
 .title {
@@ -241,10 +261,7 @@ section {
   box-sizing: border-box;
   color: black;
 }
-/* 
-.card:not(:nth-child(5n)) {
-  margin-right: 20px;
-} */
+
 .card span {
   font-size: 12px;
 }
@@ -449,6 +466,7 @@ ul {
 }
 
 /* REGISTER/CONNECTION PAGES */
+
 .connection-form,
 .register-form {
   margin-top: 60px;
@@ -535,7 +553,9 @@ ul {
 }
 
 textarea {
-  border: none;
+  width: 455px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .comment {
@@ -595,6 +615,24 @@ textarea {
   height: 110px;
   box-sizing: border-box;
 }
+/* Firefox */
+.post-description-price input {
+  -moz-appearance: textfield;
+}
+
+/* Chrome */
+.post-description-price input::-webkit-inner-spin-button,
+.post-description-price input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Opéra*/
+.post-description-price input::-o-inner-spin-button,
+.post-description-price input::-o-outer-spin-button {
+  -o-appearance: none;
+  margin: 0;
+}
 
 .post-description {
   height: 240px;
@@ -609,7 +647,7 @@ textarea {
   border-bottom: 1px solid rgb(230, 228, 228);
 }
 
-.post-description-text .test {
+.post-description-text {
   margin-top: 15px;
 
   border-bottom: 1px solid rgb(230, 228, 228);
@@ -644,11 +682,15 @@ textarea {
 }
 
 .button-photo {
-  border: rgb(2, 117, 128) solid 1px;
+  border: rgb(2, 117, 128) solid 2px;
   padding: 15px;
   border-radius: 5px;
   color: rgb(2, 117, 128);
   cursor: pointer;
+}
+
+.button-photo:hover {
+  background-color: rgb(235, 245, 246);
 }
 
 /* FOOTER */
@@ -656,13 +698,12 @@ textarea {
 footer {
   position: absolute;
   margin-bottom: 0;
-  /* background-color: #ebe9e9; */
 }
 .footer {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #ebe9e9; */
 }
 
 .footer-section {

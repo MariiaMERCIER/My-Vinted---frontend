@@ -12,14 +12,11 @@ import Offers from "./pages/Offers";
 import Publish from "./pages/Publish";
 import Paiement from "./pages/Paiement";
 
-import Header from "./components/Header";
-
 import { useState } from "react";
 
 const App = () => {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [search, setSearch] = useState("");
-
   const [priceSort, setPriceSort] = useState("");
   const [limit, setLimit] = useState("");
   const [id, setId] = useState("");
@@ -37,30 +34,16 @@ const App = () => {
     }
   };
 
-  // const handleSearchChange = (event) => {
-  //   setValidate(false);
-
-  //   if (event.key === "Enter") {
-  //     setValidate(true);
-  //   }
-  // };
-
   return (
     <Router>
-      <Header
-        token={token}
-        handleToken={handleToken}
-        search={search}
-        setSearch={setSearch}
-        // validate={validate}
-        // setValidate={setValidate}
-        // handleSearchChange={handleSearchChange}
-      />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home token={token} handleToken={handleToken} />}
+        />
         <Route
           path="/user/signup"
-          element={<SignUp token={token} handleToken={handleToken} />}
+          element={<SignUp setId={setId} handleToken={handleToken} />}
         />
         <Route
           path="/user/login"
@@ -68,14 +51,18 @@ const App = () => {
             <LogIn token={token} handleToken={handleToken} setId={setId} />
           }
         />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route
+          path="/offer/:id"
+          element={<Offer token={token} handleToken={handleToken} />}
+        />
         <Route
           path="/offers"
           element={
             <Offers
+              token={token}
+              handleToken={handleToken}
               search={search}
-              // validate={validate}
-              // setValidate={setValidate}
+              setSearch={setSearch}
               limit={limit}
               setLimit={setLimit}
               priceSort={priceSort}
@@ -90,7 +77,10 @@ const App = () => {
           }
         />
         <Route path="/pay" element={<Paiement token={token} id={id} />}></Route>
-        <Route path="/offer/publish" element={<Publish token={token} />} />
+        <Route
+          path="/offer/publish"
+          element={<Publish token={token} handleToken={handleToken} />}
+        />
       </Routes>
     </Router>
   );

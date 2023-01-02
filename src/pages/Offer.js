@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+
+// Import des composants
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Offer = () => {
+const Offer = ({ token, handleToken }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +20,7 @@ const Offer = () => {
           `https://site--vinted-backend--b4q4rvkfdvcr.code.run/offer/${id}`
         );
         setData(response.data);
-        // console.log(response.data);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error.data.response);
@@ -27,12 +30,16 @@ const Offer = () => {
   }, [id]);
 
   return isLoading ? (
-    <div className="loading">
-      <p>En chargement...</p>
-      <Footer color={true} />
-    </div>
+    <>
+      <Header token={token} handleToken={handleToken} />
+      <div className="loading">
+        <p>En chargement...</p>
+        <Footer color={true} />
+      </div>
+    </>
   ) : (
     <>
+      <Header token={token} handleToken={handleToken} />
       <section className="section-offer">
         <div className="container">
           <div className="section-offer-photo">
@@ -47,19 +54,18 @@ const Offer = () => {
               <ul>
                 {data.product_details.map((detail, index) => {
                   const keys = Object.keys(detail)[0];
-                  // console.log(keys);
+
                   return (
                     <div className="details" key={index}>
                       <li>
                         <span className="keys">{keys} : </span>
-                        {/* <span className="detail-keys">{detail[keys]}</span> */}
                       </li>
                     </div>
                   );
                 })}
                 {data.product_details.map((detail, index) => {
                   const keys = Object.keys(detail)[0];
-                  // console.log(keys);
+
                   return (
                     <div className="details" key={index}>
                       <li>

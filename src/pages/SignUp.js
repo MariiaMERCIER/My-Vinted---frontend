@@ -1,9 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
-const SignUp = ({ token, setToken, handleToken }) => {
+// Import des composants
+
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Input from "../components/Input";
+
+const SignUp = ({ setId, handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,16 +26,6 @@ const SignUp = ({ token, setToken, handleToken }) => {
       setErrorMessage("Veuillez remplir touts les champs");
     } else {
       try {
-        // const response = await axios.post(
-        //   "http://localhost:3000/user/signup",
-        //   {
-        //     email: email,
-        //     username: name,
-        //     password: password,
-        //     newsletter: newsletter,
-        //   }
-        // );
-
         const formData = new FormData();
         formData.append("username", username);
         formData.append("email", email);
@@ -43,7 +38,10 @@ const SignUp = ({ token, setToken, handleToken }) => {
           formData
         );
 
-        navigate("/user/login");
+        handleToken(response.data.token);
+        setId(response.data._id);
+
+        navigate("/");
       } catch (error) {
         if (error.response?.status === 409) {
           setErrorMessage(
@@ -59,39 +57,36 @@ const SignUp = ({ token, setToken, handleToken }) => {
 
   return (
     <>
+      <Header />
       <form className="register-form" onSubmit={handleUserSubmit}>
         <h1>S'inscrire</h1>
-        <input
-          className="input-text"
-          name="name"
+        <Input
           type="text"
           placeholder="Your name"
           value={username}
-          onChange={(event) => {
+          setFunction={(event) => {
             setUsername(event.target.value);
           }}
-        ></input>
+        />
 
         <p className="error">{errorMessage}</p>
-        <input
-          className="input-text"
-          name="email"
+        <Input
           type="email"
-          placeholder="Adresse email"
+          placeholder="Your email"
           value={email}
-          onChange={(event) => {
+          setFunction={(event) => {
             setEmail(event.target.value);
           }}
-        ></input>
-        <input
-          className="input-text"
+        />
+        <Input
           type="password"
           placeholder="Mots de passe"
           value={password}
-          onChange={(event) => {
+          setFunction={(event) => {
             setPassword(event.target.value);
           }}
-        ></input>
+        />
+
         <div className="button-avatar">
           <span>Selectionnez la photo de profile</span>
           <label className="photo-avatar" htmlFor="photo-register">
