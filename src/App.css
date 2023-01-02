@@ -400,6 +400,12 @@ ul {
   font-size: 14px;
 }
 
+.slide-offer {
+  width: 350%;
+  height: 450px;
+  object-fit: contain;
+}
+
 /* PAGE OFFERS FILTERS */
 
 .filters {

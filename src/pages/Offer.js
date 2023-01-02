@@ -5,13 +5,13 @@ import { useParams, Link } from "react-router-dom";
 // Import des composants
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Slider from "../components/Slider";
 
 const Offer = ({ token, handleToken }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +20,6 @@ const Offer = ({ token, handleToken }) => {
           `https://site--vinted-backend--b4q4rvkfdvcr.code.run/offer/${id}`
         );
         setData(response.data);
-
         setIsLoading(false);
       } catch (error) {
         console.log(error.data.response);
@@ -43,7 +42,8 @@ const Offer = ({ token, handleToken }) => {
       <section className="section-offer">
         <div className="container">
           <div className="section-offer-photo">
-            <img src={data.product_image.secure_url} alt="offer" />
+            <Slider data={data} />
+            {/* <img src={data.product_image.secure_url} alt="offer" /> */}
           </div>
 
           <div className="section-offer-decription">
