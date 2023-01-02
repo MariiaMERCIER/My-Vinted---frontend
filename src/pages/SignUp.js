@@ -15,6 +15,7 @@ const SignUp = ({ setId, handleToken }) => {
   const [newsletter, setNewsLetter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [picture, setPicture] = useState("");
+  const [selectImage, setSelectImage] = useState(null);
 
   const navigate = useNavigate();
 
@@ -99,8 +100,13 @@ const SignUp = ({ setId, handleToken }) => {
             type="file"
             onChange={(event) => {
               setPicture(event.target.files[0]);
+              setSelectImage(URL.createObjectURL(event.target.files[0]));
             }}
           ></input>
+
+          {selectImage && (
+            <img src={selectImage} alt="preview" className="preview" />
+          )}
         </div>
         <div className="newsletter">
           <div className="checkbox-news">

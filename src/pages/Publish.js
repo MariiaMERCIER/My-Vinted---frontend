@@ -7,7 +7,6 @@ import axios from "axios";
 // Import des composants
 
 import Header from "../components/Header";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 const Publish = ({ token, handleToken }) => {
   const [title, setTitle] = useState("");
