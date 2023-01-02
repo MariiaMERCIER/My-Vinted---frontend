@@ -7,6 +7,7 @@ const Slider = ({ data }) => {
   items.push(
     <img
       src={data.product_image.secure_url}
+      alt="fist-slide"
       onDragStart={handleDragStart}
       role="presentation"
     />
@@ -17,6 +18,7 @@ const Slider = ({ data }) => {
       items.push(
         <img
           src={data.product_pictures[i]}
+          alt="slide"
           onDragStart={handleDragStart}
           role="presentation"
         />
@@ -24,6 +26,6 @@ const Slider = ({ data }) => {
     }
   }
 
-  return <AliceCarousel mouseTracking items={items} />;
+  return <AliceCarousel disableDotsControls mouseTracking items={items} />;
 };
 export default Slider;

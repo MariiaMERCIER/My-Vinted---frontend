@@ -400,10 +400,8 @@ ul {
   font-size: 14px;
 }
 
-.slide-offer {
-  width: 350%;
-  height: 450px;
-  object-fit: contain;
+.alice-carousel__stage-item.__active.__target {
+  text-align: center;
 }
 
 /* PAGE OFFERS FILTERS */

@@ -15,7 +15,7 @@ const Publish = ({ token, handleToken }) => {
   const [color, setColor] = useState("");
   const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
-  const { setData } = useState([]);
+  const [data, setData] = useState([]);
 
   const navigate = useNavigate();
 
@@ -46,13 +46,14 @@ const Publish = ({ token, handleToken }) => {
           },
         }
       );
-
+      console.log(response.data);
       setData(response.data);
+
       alert("L'offre vient d'être publiée");
 
       navigate("/");
     } catch (error) {
-      console.error("catch>>>", error.response.data);
+      console.error("catch>>>", error.message);
     }
   };
 
@@ -78,7 +79,6 @@ const Publish = ({ token, handleToken }) => {
                 name="+ Ajouter une photo"
                 onChange={(event) => {
                   setImage(event.target.files);
-                  console.log(event.target.files);
                 }}
                 multiple
               ></input>
