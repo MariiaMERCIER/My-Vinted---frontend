@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import axios from "axios";
+
+// Import des composants
+
 import Header from "../components/Header";
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 const Publish = ({ token, handleToken }) => {
   const [title, setTitle] = useState("");
@@ -16,6 +20,7 @@ const Publish = ({ token, handleToken }) => {
   const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
   const [data, setData] = useState([]);
+  const [selectImage, setSelectImage] = useState([]);
 
   const navigate = useNavigate();
 
@@ -57,6 +62,17 @@ const Publish = ({ token, handleToken }) => {
     }
   };
 
+  let images = [];
+  const handleImageChange = (event) => {
+    setImage(event.target.files);
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      images.push(URL.createObjectURL(event.target.files[i]));
+    }
+
+    setSelectImage(images);
+  };
+
   return token ? (
     <>
       <Header token={token} handleToken={handleToken} />
@@ -77,11 +93,22 @@ const Publish = ({ token, handleToken }) => {
                 id="picture"
                 type="file"
                 name="+ Ajouter une photo"
-                onChange={(event) => {
-                  setImage(event.target.files);
-                }}
+                onChange={handleImageChange}
                 multiple
               ></input>
+              <div>
+                {selectImage &&
+                  selectImage.map((img, index) => {
+                    return (
+                      <img
+                        src={img}
+                        key={index}
+                        alt="preview"
+                        className="preview"
+                      />
+                    );
+                  })}
+              </div>
             </div>
           </section>
           <section className="post-description">

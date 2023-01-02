@@ -600,10 +600,11 @@ textarea {
   border-radius: 5px;
   border: 1px dashed rgb(186, 186, 186);
   display: flex;
-
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  gap: 15px;
 }
 
 .article-details {
@@ -697,6 +698,9 @@ textarea {
   background-color: rgb(235, 245, 246);
 }
 
+.preview {
+  width: 50px;
+}
 /* FOOTER */
 
 footer {
