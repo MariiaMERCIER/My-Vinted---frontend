@@ -91,7 +91,13 @@ const CheckoutForm = ({ id, title, price }) => {
           </form>
         </div>
       ) : (
-        <span>Paiement affectué!</span>
+        <div className="paiement-page congratulation">
+          <img
+            src={require("../assets/images/colissimo-suivre-livraison.png")}
+            alt="congratulation"
+          />
+          <span>Paiement affectué!</span>
+        </div>
       )}
     </>
   );

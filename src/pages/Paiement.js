@@ -1,9 +1,11 @@
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "../components/CheckoutForm";
 import { Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+// Import des Components
+
+import CheckoutForm from "../components/CheckoutForm";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -22,7 +24,7 @@ const Paiement = ({ token, id, handleToken }) => {
       <Elements stripe={stripPromise}>
         <CheckoutForm title={title} price={price} id={id} />
       </Elements>
-      <Footer color={true} />;
+      <Footer color={true} />
     </>
   ) : (
     <Navigate to="/user/login" />

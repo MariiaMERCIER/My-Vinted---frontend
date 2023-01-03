@@ -770,11 +770,17 @@ footer {
 .form-paiement h1 {
   font-weight: 900;
 }
-.paiement {
+.congratulation {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
   gap: 20px;
+  font-size: 20px;
+}
+
+.congratulation img {
+  width: 200px;
 }
 
 .total {
