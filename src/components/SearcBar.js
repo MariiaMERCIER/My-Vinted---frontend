@@ -1,17 +1,25 @@
-const SearchBar = ({ setFunction, placeholder, value, setSearch }) => {
+const SearchBar = ({ placeholder, value, setSearch, display }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-  return (
+  return display ? (
     <input
-      className="bar-search"
+      className="bar-search show"
       type="text"
       name="search"
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
-      onKeyDown={setFunction}
+    />
+  ) : (
+    <input
+      className="bar-search "
+      type="text"
+      name="search"
+      value={value}
+      placeholder={placeholder}
+      onChange={handleChange}
     />
   );
 };

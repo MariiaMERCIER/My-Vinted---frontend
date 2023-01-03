@@ -4,6 +4,8 @@ import "./App.css";
 import "./assets/fonts/stylesheet.css";
 import Cookies from "js-cookie";
 
+// Import Pages
+
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import LogIn from "./pages/LogIn";

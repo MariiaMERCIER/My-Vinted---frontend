@@ -43,7 +43,7 @@ const Offer = ({ token, handleToken }) => {
         <div className="container">
           <div className="section-offer-photo">
             <Slider data={data} />
-            {/* <img src={data.product_image.secure_url} alt="offer" /> */}
+          
           </div>
 
           <div className="section-offer-decription">

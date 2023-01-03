@@ -6,13 +6,7 @@ import MenuBar from "./MenuBar";
 import SelectLanguage from "./SelectLanguage";
 import SelectMenu from "./SelectMenu";
 
-const HeaderOffer = ({
-  token,
-  handleToken,
-  search,
-  setSearch,
-  handleSearchChange,
-}) => {
+const HeaderOffer = ({ token, handleToken, search, setSearch }) => {
   return (
     <>
       <header>
@@ -26,7 +20,6 @@ const HeaderOffer = ({
               <SearchBar
                 value={search}
                 placeholder="Rechercher des articles"
-                setFunction={handleSearchChange}
                 setSearch={setSearch}
               />
             </div>
@@ -72,17 +65,12 @@ const HeaderOffer = ({
       </header>
       <header>
         <div className="top-bar">
-          <SelectMenu />
-          {/* <select className="menu show">
-            <option value="articles">Articles</option>
-            <option value="membres">Membres</option>
-            <option value="forum">Forum</option>
-            <option value="centre d'aide">Centre d'aide</option>
-          </select> */}
+          <SelectMenu display={true} />
+
           <SearchBar
+            display={true}
             value={search}
             placeholder="Rechercher des articles"
-            setFunction={handleSearchChange}
             setSearch={setSearch}
           />
           <MenuBar />

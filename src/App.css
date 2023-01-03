@@ -451,22 +451,32 @@ ul {
   border-radius: 5px;
   border: 1px solid rgb(185, 185, 185);
   margin-right: 10px;
+  margin-left: 20px;
 }
 .desc,
 .asc {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .checkbox {
-  width: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
 }
-
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgb(26, 118, 128);
+}
 .pages button {
   background-color: white;
   color: rgb(102, 101, 101);
   font-size: 14px;
-  width: 30px;
+  width: 20px;
 }
 
 /* REGISTER/CONNECTION PAGES */

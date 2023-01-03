@@ -7,8 +7,10 @@ import OfferInfo from "../components/OfferInfo";
 import SelectPage from "../components/SelectPage";
 
 const Offers = ({
+  token,
+  handleToken,
   search,
-
+  setSearch,
   limit,
   setLimit,
   priceSort,
@@ -58,7 +60,12 @@ const Offers = ({
 
   return isLoading ? (
     <>
-      <HeaderOffer />
+      <HeaderOffer
+        token={token}
+        handleToken={handleToken}
+        search={search}
+        setSearch={setSearch}
+      />
       <div className="loading">
         <p>En cours de chargement...</p>
       </div>
@@ -66,7 +73,12 @@ const Offers = ({
     </>
   ) : (
     <>
-      <HeaderOffer />
+      <HeaderOffer
+        token={token}
+        handleToken={handleToken}
+        search={search}
+        setSearch={setSearch}
+      />
       <div className="container">
         <div className="filters">
           <h2 className="title">Toutes les articles</h2>
@@ -131,34 +143,16 @@ const Offers = ({
             })}
           </div>
           <div className="pages">
-            <button
-              onClick={() => {
-                setPage(1);
-              }}
-            >
-              1
-            </button>
-            <button
-              onClick={() => {
-                setPage(2);
-              }}
-            >
-              2
-            </button>
-            <button
-              onClick={() => {
-                setPage(3);
-              }}
-            >
-              3
-            </button>
-            <button
-              onClick={() => {
-                setPage(4);
-              }}
-            >
-              4
-            </button>
+            {page === 1 ? null : (
+              <button
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                {"<"}
+              </button>
+            )}
+            <span>{page}</span>
             <button
               onClick={() => {
                 setPage(page + 1);
@@ -166,7 +160,6 @@ const Offers = ({
             >
               {">"}
             </button>
-            <span>...</span>
           </div>
         </div>
       </div>
