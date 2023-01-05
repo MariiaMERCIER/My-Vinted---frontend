@@ -4,7 +4,7 @@ const SelectPage = ({ setLimit }) => {
   };
   return (
     <select className="articles-page" onChange={handlePageChange}>
-      <option>Nombre d'article par page</option>
+      <option>Nmbr d'article par page</option>
       <option>5</option>
       <option>15</option>
       <option>20</option>

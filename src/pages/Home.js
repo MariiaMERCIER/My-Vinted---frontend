@@ -63,7 +63,7 @@ const Home = ({ token, handleToken }) => {
                 return index < 5 && <OfferInfo elem={elem} key={index} />;
               })}
               <Link to="/offers" className="seeMoreArticle">
-                Voir touts les articles
+                <p>Voir touts les articles</p>
               </Link>
             </div>
           </section>

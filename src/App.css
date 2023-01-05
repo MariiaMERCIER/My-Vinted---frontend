@@ -212,7 +212,7 @@ header button:hover {
 
 .seeMoreArticle {
   width: 195px;
-  height: 325px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -409,7 +409,9 @@ ul {
 .filters {
   min-height: 80vh;
 }
-
+.show {
+  display: none;
+}
 .filters .title {
   margin-top: 20px;
 }
@@ -815,11 +817,17 @@ footer {
   .condition-show {
     display: none;
   }
+  .show {
+    display: none;
+  }
 }
 
 @media (max-width: 1184px) {
   .seeMoreArticle {
     text-align: center;
+  }
+  .show {
+    display: none;
   }
 
   .content {
@@ -840,7 +848,7 @@ footer {
 
 @media (max-width: 1024px) {
   .populaire {
-    max-width: 964px;
+    /* max-width: 964px; */
     overflow: hidden;
     overflow-x: scroll;
 
@@ -862,9 +870,15 @@ footer {
   .hidden-footer {
     display: none;
   }
+  button {
+    margin-right: 10px;
+  }
+  .show {
+    display: none;
+  }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 768px) {
   .top-bar input {
     width: 85vw;
   }
@@ -891,5 +905,112 @@ footer {
   .fa-bars {
     color: grey;
     font-size: 24px;
+  }
+  .content {
+    gap: 10px;
+  }
+  .show {
+    display: none;
+  }
+  .card-offer {
+    width: calc((100% - 30px) / 4);
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .card-offer img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .seeMoreArticle {
+    height: 300px;
+  }
+
+  .post-article {
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  .photo-vente {
+    width: 100%;
+  }
+  .post-photo {
+    width: 96vw;
+  }
+  .submit {
+    margin-right: 30px;
+  }
+  .populaire {
+    margin-bottom: 0;
+  }
+  .searchMarque {
+    padding-top: 0;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .filters .price-input {
+    width: 60px;
+  }
+
+  .section-offer {
+    padding-right: 15px;
+  }
+
+  .section-offer button {
+    margin-left: 8px;
+    width: 180px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 460px) {
+  .card-offer {
+    width: 130px;
+  }
+  .content {
+    gap: 10px;
+  }
+
+  .content-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .show {
+    margin-top: 15px;
+    display: flex;
+    color: grey;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .articles-page {
+    width: 100px;
+  }
+  .filters .price-input {
+    width: 50px;
+    margin-left: 5px;
+  }
+  .content-filters-left {
+    gap: 5px;
+  }
+
+  .input-blocs {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .section-offer .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-offer-photo img {
+    width: 100%;
+    height: auto;
   }
 }

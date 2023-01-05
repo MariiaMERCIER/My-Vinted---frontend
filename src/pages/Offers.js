@@ -82,52 +82,58 @@ const Offers = ({
       <div className="container">
         <div className="filters">
           <h2 className="title">Toutes les articles</h2>
+
           <div className="content-filters">
-            <div className="content-filters-left">
-              <div className="asc">
-                <button
-                  style={{ display: "flex", alignItems: "center" }}
-                  onClick={(event) => {
-                    setPriceSort("price - asc");
-                  }}
-                  className="checkbox"
-                  type="checkbox"
-                >
-                  ↑
-                </button>
-                <span>Prix croissant </span>
-              </div>
-              <div className="desc">
-                <button
-                  style={{ display: "flex", alignItems: "center" }}
-                  className="checkbox"
-                  onClick={(event) => {
-                    setPriceSort("price - dsc");
-                  }}
-                >
-                  ↓
-                </button>
-                <span>Prix décroissant </span>
-              </div>
-              <div>
-                <input
-                  className="price-input"
-                  type="number"
-                  value={priceMin}
-                  placeholder="Prix min, €"
-                  onChange={handlePriceChangeMin}
-                />
-                <input
-                  className="price-input"
-                  type="number"
-                  value={priceMax}
-                  placeholder="Prix max, €"
-                  onChange={handlePriceChangeMax}
-                />
-              </div>
+            <div className="show">
+              <p>Price</p>
             </div>
             <div>
-              <SelectPage setLimit={setLimit} />
+              <div className="content-filters-left">
+                <div className="asc">
+                  <button
+                    style={{ display: "flex", alignItems: "center" }}
+                    onClick={(event) => {
+                      setPriceSort("price - asc");
+                    }}
+                    className="checkbox"
+                    type="checkbox"
+                  >
+                    ↑
+                  </button>
+                  <span className="hidden">Prix croissant </span>
+                </div>
+                <div className="desc">
+                  <button
+                    style={{ display: "flex", alignItems: "center" }}
+                    className="checkbox"
+                    onClick={(event) => {
+                      setPriceSort("price - dsc");
+                    }}
+                  >
+                    ↓
+                  </button>
+                  <span className="hidden">Prix décroissant </span>
+                </div>
+                <div className="input-blocs">
+                  <input
+                    className="price-input"
+                    type="number"
+                    value={priceMin}
+                    placeholder="min, €"
+                    onChange={handlePriceChangeMin}
+                  />
+                  <input
+                    className="price-input"
+                    type="number"
+                    value={priceMax}
+                    placeholder="max, €"
+                    onChange={handlePriceChangeMax}
+                  />
+                </div>
+                <div>
+                  <SelectPage setLimit={setLimit} />
+                </div>
+              </div>
             </div>
           </div>
           <div className="content actu">
@@ -142,7 +148,7 @@ const Offers = ({
               );
             })}
           </div>
-          <div className="pages">
+          {/* <div className="pages">
             {page === 1 ? null : (
               <button
                 onClick={() => {
@@ -160,7 +166,7 @@ const Offers = ({
             >
               {">"}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const OfferInfo = ({ elem, display }) => {
   return (
     elem.owner && (
-      <div>
+      <div className="card-offer">
         {display && (
           <div className="account">
             {elem.owner.account.avatar ? (
