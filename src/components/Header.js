@@ -51,12 +51,12 @@ const Header = ({ token, handleToken }) => {
               )}
             </div>
 
-            <Link
+            {/* <Link
               className="show"
               to={token ? ("/", handleToken(null)) : "/user/login"}
             >
               <i className="fa-solid fa-circle-user show"></i>
-            </Link>
+            </Link> */}
 
             <i className="fa-solid fa-bars show"></i>
           </div>
