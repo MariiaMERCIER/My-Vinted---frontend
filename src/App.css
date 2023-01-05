@@ -444,7 +444,9 @@ ul {
 
   border: none;
 }
-
+.show {
+  display: none;
+}
 .filters .price-input {
   width: 110px;
   height: 36px;
