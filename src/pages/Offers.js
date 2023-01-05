@@ -16,7 +16,7 @@ const Offers = ({
   priceSort,
   setPriceSort,
   page,
-  setPage,
+
   priceMax,
   setPriceMax,
   priceMin,

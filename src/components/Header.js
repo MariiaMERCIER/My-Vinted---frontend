@@ -50,6 +50,11 @@ const Header = ({ token, handleToken }) => {
                 </div>
               )}
             </div>
+
+            <Link to={token ? ("/", handleToken(null)) : "/user/login"}>
+              <i className="fa-solid fa-circle-user show"></i>
+            </Link>
+
             <i className="fa-solid fa-bars show"></i>
           </div>
         </div>

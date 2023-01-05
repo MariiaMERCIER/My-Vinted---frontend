@@ -62,7 +62,7 @@ const Home = ({ token, handleToken }) => {
               {data.offers.map((elem, index) => {
                 return index < 5 && <OfferInfo elem={elem} key={index} />;
               })}
-              <Link to="/offers" className="seeMoreArticle">
+              <Link to="/offers" className="seeMoreArticle hidden">
                 <p>Voir touts les articles</p>
               </Link>
             </div>

@@ -910,7 +910,7 @@ footer {
     gap: 10px;
   }
   .show {
-    display: none;
+    display: flex;
   }
   .card-offer {
     width: calc((100% - 30px) / 4);
@@ -964,14 +964,25 @@ footer {
     width: 180px;
     height: 45px;
   }
+
+  .fa-circle-user {
+    font-size: 35px;
+  }
+  .seeMoreArticle {
+    display: none;
+  }
 }
 
 @media (max-width: 460px) {
+  .container {
+    padding: 0;
+  }
   .card-offer {
     width: 130px;
   }
-  .content {
-    gap: 10px;
+  .populaire {
+    gap: 15px;
+    padding: 0 15px;
   }
 
   .content-filters {
@@ -1009,8 +1020,78 @@ footer {
     flex-direction: column;
   }
 
+  .section-offer-photo {
+    width: 100%;
+    height: 400px;
+    padding: 0;
+  }
+
   .section-offer-photo img {
     width: 100%;
-    height: auto;
+    height: 400px;
+  }
+
+  .section-offer {
+    padding: 0;
+  }
+
+  .section-offer-decription {
+    width: 100%;
+  }
+  .section-article {
+    gap: 5px;
+  }
+
+  .footer-section {
+    margin-top: 50px;
+  }
+  .enTête {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .fa-circle-user {
+    margin-left: 120px;
+  }
+
+  .fa-bars {
+    margin-left: 150px;
+  }
+
+  .card img {
+    width: 130px;
+    gap: 15px;
+  }
+  .filters,
+  .fil-actu {
+    padding: 0 15px;
+  }
+  .post-photo {
+    width: 94vw;
+  }
+  .post-article input {
+    width: 200px;
+  }
+  textarea {
+    width: 200px;
+    height: 100px;
+  }
+
+  .publish-page section {
+    box-sizing: border-box;
+  }
+  .post-description-price,
+  .post-description {
+    margin-right: 28px;
+  }
+
+  .footer-section {
+    padding: 0 15px;
+  }
+
+  .articlePopulaire {
+    padding: 0 15px;
   }
 }
