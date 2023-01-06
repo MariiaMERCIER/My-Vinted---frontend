@@ -33,8 +33,8 @@ const Offer = ({ token, handleToken }) => {
       <Header token={token} handleToken={handleToken} />
       <div className="loading">
         <p>En chargement...</p>
-        <Footer color={true} />
       </div>
+      <Footer color={true} />
     </>
   ) : (
     <>
@@ -43,7 +43,6 @@ const Offer = ({ token, handleToken }) => {
         <div className="container">
           <div className="section-offer-photo">
             <Slider data={data} />
-          
           </div>
 
           <div className="section-offer-decription">
