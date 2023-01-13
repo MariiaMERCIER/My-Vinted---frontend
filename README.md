@@ -19,6 +19,6 @@ Project is create with:
 ### Setup
 To run this project, install it locally with using
 
-$ yarn
-$ yarn start
+* $ yarn
+* $ yarn start
 
