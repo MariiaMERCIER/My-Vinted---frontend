@@ -19,8 +19,6 @@ Project is create with:
 ### Setup
 To run this project, install it locally with using
 
-$yarn create react-app front-vinted
-$yarn start
-$yarn add axios
-$yarn add @stripe
-$yarn add @react-router-dom
+$ yarn
+$ yarn start
+
